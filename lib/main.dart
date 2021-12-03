@@ -1,4 +1,4 @@
-import 'package:claus_guess/views/home.dart';
+import 'package:claus_guess/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,9 +34,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(fontFamily: 'PatrickHand'),
       ),
       initialRoute: 'homePage',
-      routes: {
-        'homePage': (context) => const HomeView()
-      },
+      routes: {'homePage': (context) => HomePage()},
     );
   }
 }

@@ -1,24 +1,29 @@
+import 'package:claus_guess/common/christmas_words.dart';
 import 'package:claus_guess/game/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
+
+  final ChristmasWords christmasWords = ChristmasWords();
 
   @override
-  HomeViewState createState() => HomeViewState();
+  HomePageState createState() => HomePageState();
 }
 
-class HomeViewState extends State<HomeView> {
+class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    widget.christmasWords.readWords();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(
                   height: 38,
@@ -41,7 +46,7 @@ class HomeViewState extends State<HomeView> {
                 ),
                 Center(
                   child: Image.asset(
-                    'img/claus-transparent.png',
+                    'img/claus.png',
                     height: height * 0.40,
                   ),
                 ),
@@ -60,12 +65,9 @@ class HomeViewState extends State<HomeView> {
                               Navigator.of(context).push<Route>(
                                 MaterialPageRoute(
                                   builder: (context) {
-                                    return const GamePage();
-                                    /*return const GuessView(
-                                    wordList: [
-                                      'christmas', 'claus', 'tree'
-                                    ],
-                                  );*/
+                                    return GamePage(
+                                      words: widget.christmasWords,
+                                    );
                                   },
                                 ),
                               );
