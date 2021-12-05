@@ -13,11 +13,18 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  String theme = 'Santa Claus';
-  List<String> themeOptions = ['Santa Claus', 'Apalpador', 'Reyes Magos'];
+  String theme = 'Santa Claus (EN)';
+  String fileName = 'res/words_en.txt';
+  List<String> themeOptions = [
+    'Santa Claus (EN)',
+    'Apalpador (GL)',
+    'Reyes Magos (ES)'
+  ];
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    widget.words.readWords(fileName: fileName);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -41,20 +48,19 @@ class HomePageState extends State<HomePage> {
                         onChanged: (String? newValue) {
                           setState(() {
                             theme = newValue!;
-                            var filename = 'res/words_en.txt';
                             switch (theme) {
-                              case 'Santa Claus':
-                                filename = 'res/words_en.txt';
+                              case 'Santa Claus (EN)':
+                                fileName = 'res/words_en.txt';
                                 break;
-                              case 'Apalpador':
-                                filename = 'res/words_gl.txt';
+                              case 'Apalpador (GL)':
+                                fileName = 'res/words_gl.txt';
                                 break;
-                              case 'Reyes Magos':
-                                filename = 'res/words_es.txt';
+                              case 'Reyes Magos (ES)':
+                                fileName = 'res/words_es.txt';
                                 break;
                             }
                             widget.words.readWords(
-                              fileName: filename,
+                              fileName: fileName,
                             );
                           });
                         },
@@ -73,7 +79,7 @@ class HomePageState extends State<HomePage> {
                   child: Container(
                     margin: const EdgeInsets.fromLTRB(8, 1, 8, 8),
                     child: const Text(
-                      'CLAUS GUESS GAME',
+                      'XMAS GUESS GAME',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,
@@ -87,9 +93,13 @@ class HomePageState extends State<HomePage> {
                 ),
                 Center(
                   child: Image.asset(
-                    'img/claus.png',
-                    height: height * 0.40,
-                  ),
+                      theme == 'Santa Claus (EN)'
+                          ? 'img/santa.png'
+                          : theme == 'Apalpador (GL)'
+                              ? 'img/apalpador.png'
+                              : 'img/rey.png',
+                      height: height * 0.40,
+                    ),
                 ),
                 const SizedBox(
                   height: 15,
