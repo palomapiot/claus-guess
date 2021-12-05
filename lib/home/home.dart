@@ -2,22 +2,22 @@ import 'package:claus_guess/common/christmas_words.dart';
 import 'package:claus_guess/game/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
-  final ChristmasWords christmasWords = ChristmasWords();
+  final ChristmasWords words = ChristmasWords();
 
   @override
   HomePageState createState() => HomePageState();
 }
 
 class HomePageState extends State<HomePage> {
+  String theme = 'Santa Claus';
+  List<String> themeOptions = ['Santa Claus', 'Apalpador', 'Reyes Magos'];
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    widget.christmasWords.readWords();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -32,25 +32,39 @@ class HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Stack(
-                            children: <Widget>[
-                              Container(
-                                padding:
-                                const EdgeInsets.only(top: 0.5),
-                                child: IconButton(
-                                  tooltip: 'Theme',
-                                  highlightColor: Colors.transparent,
-                                  splashColor: Colors.transparent,
-                                  iconSize: 35,
-                                  icon: const Icon(MdiIcons.earth),
-                                  onPressed: () {},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      DropdownButton(
+                        value: theme,
+                        icon: const Icon(Icons.arrow_drop_down_rounded),
+                        iconSize: 24,
+                        underline: null,
+                        style: const TextStyle(color: Colors.white),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            theme = newValue!;
+                            var filename = 'res/words_en.txt';
+                            switch (theme) {
+                              case 'Santa Claus':
+                                filename = 'res/words_en.txt';
+                                break;
+                              case 'Apalpador':
+                                filename = 'res/words_gl.txt';
+                                break;
+                              case 'Reyes Magos':
+                                filename = 'res/words_es.txt';
+                                break;
+                            }
+                            widget.words.readWords(
+                              fileName: filename,
+                            );
+                          });
+                        },
+                        items: themeOptions
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ],
                   ),
@@ -93,7 +107,7 @@ class HomePageState extends State<HomePage> {
                                 MaterialPageRoute(
                                   builder: (context) {
                                     return GamePage(
-                                      words: widget.christmasWords,
+                                      words: widget.words,
                                     );
                                   },
                                 ),

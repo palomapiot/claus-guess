@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:material_dialogs/material_dialogs.dart';
 import 'package:material_dialogs/widgets/buttons/icon_button.dart';
-import 'package:material_dialogs/widgets/buttons/icon_outline_button.dart';
 
 class GameForm extends StatelessWidget {
   const GameForm({Key? key, required this.words}) : super(key: key);
@@ -69,7 +68,7 @@ class GameForm extends StatelessWidget {
           WidgetsBinding.instance!.addPostFrameCallback((_) {
             Dialogs.materialDialog(
               msg: 'The word was ${state.word}',
-              title: 'Oh no! You didn' 't guess the word :(',
+              title: 'Oh no! You didnt guess the word :(',
               lottieBuilder: Lottie.asset(
                 'img/lost-santa-claus.json',
                 fit: BoxFit.contain,
