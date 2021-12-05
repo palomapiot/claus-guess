@@ -5,6 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:material_dialogs/material_dialogs.dart';
+import 'package:material_dialogs/widgets/buttons/icon_button.dart';
+import 'package:material_dialogs/widgets/buttons/icon_outline_button.dart';
 
 class GameForm extends StatelessWidget {
   const GameForm({Key? key, required this.words}) : super(key: key);
@@ -37,78 +40,54 @@ class GameForm extends StatelessWidget {
       builder: (context, state) {
         if (context.read<GameCubit>().hasWon()) {
           WidgetsBinding.instance!.addPostFrameCallback((_) {
-            showDialog<dynamic>(
+            Dialogs.materialDialog(
+              msg: 'The word was ${state.word}',
+              title: 'Yay! You won, congrats! :)',
+              lottieBuilder: Lottie.asset(
+                'img/confetti.json',
+                fit: BoxFit.contain,
+              ),
+              color: Colors.white,
               context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  title: const Text(
-                    'YAY! YOU WON, CONGRATS!',
-                    style: TextStyle(color: Colors.black87),
-                  ),
-                  content: Text('THE WORD WAS: ${state.word}',
-                    style: const TextStyle(color: Colors.black87),),
-                  actions: <Widget>[
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: const Color(0xFFb11e31),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pop(true);
-                            },
-                            child: const Text('PLAY AGAIN'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+              actions: [
+                IconsButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  text: 'Play again',
+                  iconData: Icons.play_arrow_rounded,
+                  color: const Color(0xFFb11e31),
+                  textStyle: const TextStyle(color: Colors.white),
+                  iconColor: Colors.white,
+                ),
+              ],
             ).then((dynamic value) {
               context.read<GameCubit>().newGame(words.getWord());
             });
           });
         } else if (context.read<GameCubit>().hasLost()) {
           WidgetsBinding.instance!.addPostFrameCallback((_) {
-            showDialog<dynamic>(
+            Dialogs.materialDialog(
+              msg: 'The word was ${state.word}',
+              title: 'Oh no! You didn' 't guess the word :(',
+              lottieBuilder: Lottie.asset(
+                'img/lost-santa-claus.json',
+                fit: BoxFit.contain,
+              ),
+              color: Colors.white,
               context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  title: const Text(
-                    'OH NO! YOU LOST :(',
-                    style: TextStyle(color: Colors.black87),
-                  ),
-                  content: Text('THE WORD WAS: ${state.word}',
-                    style: const TextStyle(color: Colors.black87),),
-                  actions: <Widget>[
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: const Color(0xFFb11e31),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('Play again'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+              actions: [
+                IconsButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  text: 'Play again',
+                  iconData: Icons.play_arrow_rounded,
+                  color: const Color(0xFFb11e31),
+                  textStyle: const TextStyle(color: Colors.white),
+                  iconColor: Colors.white,
+                ),
+              ],
             ).then((dynamic value) {
               context.read<GameCubit>().newGame(words.getWord());
             });

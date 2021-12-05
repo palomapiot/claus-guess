@@ -2,6 +2,7 @@ import 'package:claus_guess/common/christmas_words.dart';
 import 'package:claus_guess/game/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -25,8 +26,34 @@ class HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(
-                  height: 38,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(6, 8, 6, 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Stack(
+                            children: <Widget>[
+                              Container(
+                                padding:
+                                const EdgeInsets.only(top: 0.5),
+                                child: IconButton(
+                                  tooltip: 'Theme',
+                                  highlightColor: Colors.transparent,
+                                  splashColor: Colors.transparent,
+                                  iconSize: 35,
+                                  icon: const Icon(MdiIcons.earth),
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 Center(
                   child: Container(
