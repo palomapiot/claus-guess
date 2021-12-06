@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   String theme = 'Santa Claus (EN)';
+  String themeLocale = '';
   String fileName = 'res/words_en.txt';
   List<String> themeOptions = [
     'Santa Claus (EN)',
@@ -51,12 +52,15 @@ class HomePageState extends State<HomePage> {
                             switch (theme) {
                               case 'Santa Claus (EN)':
                                 fileName = 'res/words_en.txt';
+                                themeLocale = '';
                                 break;
                               case 'Apalpador (GL)':
                                 fileName = 'res/words_gl.txt';
+                                themeLocale = '-GL';
                                 break;
                               case 'Reyes Magos (ES)':
                                 fileName = 'res/words_es.txt';
+                                themeLocale = '-ES';
                                 break;
                             }
                             widget.words.readWords(
@@ -117,7 +121,7 @@ class HomePageState extends State<HomePage> {
                                 MaterialPageRoute(
                                   builder: (context) {
                                     return GamePage(
-                                      words: widget.words,
+                                      words: widget.words, theme: themeLocale,
                                     );
                                   },
                                 ),

@@ -9,9 +9,11 @@ import 'package:material_dialogs/material_dialogs.dart';
 import 'package:material_dialogs/widgets/buttons/icon_button.dart';
 
 class GameForm extends StatelessWidget {
-  const GameForm({Key? key, required this.words}) : super(key: key);
+  const GameForm({Key? key, required this.words, this.theme = ''})
+      : super(key: key);
 
   final ChristmasWords words;
+  final String theme;
 
   Widget createButton(int index, BuildContext context) {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -43,8 +45,9 @@ class GameForm extends StatelessWidget {
               msg: 'The word was ${state.word}',
               title: 'Yay! You won, congrats! :)',
               lottieBuilder: Lottie.asset(
-                'img/confetti.json',
+                'img/trophy.json',
                 fit: BoxFit.contain,
+                repeat: true,
               ),
               color: Colors.white,
               context: context,
@@ -186,7 +189,7 @@ class GameForm extends StatelessWidget {
                           child: Container(
                             alignment: Alignment.bottomCenter,
                             child: Image.asset(
-                              'img/${state.lostOpportunities}.png',
+                              'img/${state.lostOpportunities}$theme.png',
                             ),
                           ),
                         ),

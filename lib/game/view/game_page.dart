@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GamePage extends StatelessWidget {
-  const GamePage({Key? key, required this.words}) : super(key: key);
+  const GamePage({Key? key, required this.words, this.theme = ''})
+      : super(key: key);
 
   final ChristmasWords words;
+  final String theme;
 
   Page page() => MaterialPage<void>(child: GamePage(words: words));
 
@@ -20,6 +22,7 @@ class GamePage extends StatelessWidget {
           create: (_) => GameCubit()..newGame(words.getWord()),
           child: GameForm(
             words: words,
+            theme: theme,
           ),
         ),
       ),
