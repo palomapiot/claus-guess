@@ -1,3 +1,4 @@
+import 'package:claus_guess/about/about.dart';
 import 'package:claus_guess/common/christmas_words.dart';
 import 'package:claus_guess/game/game.dart';
 import 'package:flutter/material.dart';
@@ -97,13 +98,13 @@ class HomePageState extends State<HomePage> {
                 ),
                 Center(
                   child: Image.asset(
-                      theme == 'Santa Claus (EN)'
-                          ? 'img/santa.png'
-                          : theme == 'Apalpador (GL)'
-                              ? 'img/apalpador.png'
-                              : 'img/rey.png',
-                      height: height * 0.40,
-                    ),
+                    theme == 'Santa Claus (EN)'
+                        ? 'img/santa.png'
+                        : theme == 'Apalpador (GL)'
+                            ? 'img/apalpador.png'
+                            : 'img/rey.png',
+                    height: height * 0.40,
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
@@ -121,7 +122,8 @@ class HomePageState extends State<HomePage> {
                                 MaterialPageRoute(
                                   builder: (context) {
                                     return GamePage(
-                                      words: widget.words, theme: themeLocale,
+                                      words: widget.words,
+                                      theme: themeLocale,
                                     );
                                   },
                                 ),
@@ -132,6 +134,30 @@ class HomePageState extends State<HomePage> {
                             ),
                             child: const Text(
                               'Start',
+                              style: TextStyle(fontSize: 30),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 14,
+                        ),
+                        SizedBox(
+                          height: 64,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push<Route>(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const AboutPage();
+                                  },
+                                ),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color(0xFFb11e31),
+                            ),
+                            child: const Text(
+                              'About',
                               style: TextStyle(fontSize: 30),
                             ),
                           ),
