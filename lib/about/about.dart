@@ -102,10 +102,29 @@ class AboutPage extends StatelessWidget {
                             'non di nada, pero déixalle castañas igual.\n\n'
                             'Tamén pode deixar algún agasallo máis agochado en '
                             'calquera lugar da casa e que os nenos e nenas '
-                            'temos que buscar ao erguernos. Estes agasallos '
+                            'teñen que buscar ao erguernos. Estes agasallos '
                             'soen ser manualidades que o Apalpador elabora coas'
                             ' súas mans ao longo do ano coa madeira dos montes '
-                            'do Caurel.',
+                            'do Caurel.\n\n\n [English] \n\n'
+                            'The Apalpador is a very large man who lives in the'
+                            ' mountains of Lugo, busy all year round making '
+                            'charcoal. He eats wild fruits and wild pigs that '
+                            'he hunts in the mountains. He wears a hairy suit '
+                            'full of patches and a beret. He smokes a pipe and '
+                            'has a beard.\n\nEvery 24th of December, the '
+                            'Apalpador comes down from the mountains to visit '
+                            'the Galician boys and girls.\n\nWhen they are '
+                            'asleep he touches their bellies to see if they are'
+                            ' full or hungry. If they are full say: "so, so you'
+                            ' are all year" - and leave them a handful of '
+                            'chestnuts. If they are hungry he does not say '
+                            'anything, but leave them chestnuts just the same.'
+                            '\n\nHe can also leave a few more gifts lying '
+                            'around the house that the boys and girls have to '
+                            'look for when they get up. These gifts are usually'
+                            ' handicrafts that the Apalpador makes with his '
+                            'hands throughout the year with wood from the '
+                            'Caurel mountains.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -139,7 +158,25 @@ class AboutPage extends StatelessWidget {
                             ' dejen los zapatos cerca del árbol para que allí '
                             'los reyes depositen sus regalos. También se '
                             'acostumbra dejarle pasto y agua, dulces y hasta '
-                            'pasteles dependiendo del país.',
+                            'pasteles dependiendo del país. \n\n\n [English] '
+                            '\n\nThe story goes that three wise men were guided'
+                            ' by the star of Bethlehem to the place containing '
+                            'the same name. This star would signal the birth of'
+                            ' the child Jesus, and the magi brought him gifts, '
+                            'which were gold, myrrh and frankincense. \n\nThe '
+                            'gold represents the royal nature of the child '
+                            'Jesus, the frankincense represents his divine '
+                            'nature, the frankincense is a way of praising God.'
+                            ' And the myrrh is a compound that at that time was'
+                            ' used to embalm the dead, it was a representation'
+                            ' of the future death of the child Jesus. \n\nIt is'
+                            ' a tradition that on 6 January the Three Wise Men '
+                            'arrive to give the children of the world their '
+                            'gifts. In some countries it is customary for '
+                            'children to leave their shoes near the tree for '
+                            'the kings to leave their gifts there. It is also '
+                            'customary to leave grass and water, sweets and '
+                            'even cakes depending on the country.',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
