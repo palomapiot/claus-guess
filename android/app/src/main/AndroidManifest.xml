@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.claus_guess">
+    package="com.lumebits.claus_guess">
    <application
         android:label="XMAS Guess Game"
         android:icon="@mipmap/launcher_icon">

@@ -58,3 +58,5 @@ Angel
 Elf
 Feast
 Goose
+Chimney sock
+Rudolph
