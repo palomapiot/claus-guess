@@ -15,13 +15,15 @@ This work is licensed under a
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is an adaptation of the classic Hangman, but with a Christmas theme. You can choose your favourite tradition and play a game of guessing words related to that tradition. Please note that the words will appear in the original language of the tradition.
 
-A few resources to get you started if this is your first Flutter project:
+At the moment there are three traditions:
+- Father Christmas, from the United States.
+- O Apalpador, from Galicia (Spain).
+- The Three Wise Men, from Spain.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+I know that Father Christmas and Los Reyes Magos are celebrated in more regions, but I tried to bring it closer to those where they are the main celebration of these holidays.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can learn about the different traditions in the About section. The legend or tradition is written in the original language of the tradition, and if it is different from English, in English as well.
+
+
