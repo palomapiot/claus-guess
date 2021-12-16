@@ -22,11 +22,11 @@ The main page illustrations are made by Drakkatz (Instagram @drakkatz_design)
 This project is an adaptation of the classic Hangman, but with a Christmas theme. You can choose your favourite tradition and play a game of guessing words related to that tradition. Please note that the words will appear in the original language of the tradition.
 
 At the moment there are three traditions:
-- Father Christmas, from the United States.
+- Santa Claus, from the United States.
 - O Apalpador, from Galicia (Spain).
 - The Three Wise Men, from Spain.
 
-I know that Father Christmas and Los Reyes Magos are celebrated in more regions, but I tried to bring it closer to those where they are the main celebration of these holidays.
+I know that Santa Claus and Los Reyes Magos are celebrated in more regions, but I tried to bring it closer to those where they are the main celebration of these holidays.
 
 You can learn about the different traditions in the About section. The legend or tradition is written in the original language of the tradition, and if it is different from English, in English as well.
 
